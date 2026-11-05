@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Beranda | SMK Negeri 1 Nusantara</title>
+  <meta name="description" content="Website resmi SMK Negeri 1 Nusantara: profil, jurusan, ekstrakurikuler, galeri, berita, dan kontak.">
+  <meta name="keywords" content="SMK Negeri 1 Nusantara, sekolah kejuruan, TKJ, RPL, DKV, akuntansi, PPDB, ekstrakurikuler">
+  <meta name="author" content="SMK Negeri 1 Nusantara">
+  <meta property="og:title" content="Beranda | SMK Negeri 1 Nusantara">
+  <meta property="og:description" content="Website resmi SMK Negeri 1 Nusantara: profil, jurusan, ekstrakurikuler, galeri, berita, dan kontak.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/hero-1.jpg">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/vendor.css">
+  <link rel="stylesheet" href="css/swiper-bundle.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/school.css">
+</head>
+<body>
+
+<header class="sticky-top">
+  <nav class="navbar navbar-expand-xl bg-light text-uppercase fs-6 p-3 border-bottom align-items-center">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2 text-decoration-none" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#8C907E"/><path d="M32 13 10 24l22 11 18-9v13h4V24L32 13Z" fill="#F1F1F0"/><path d="M18 34v9c0 5 6.3 9 14 9s14-4 14-9v-9l-14 7-14-7Z" fill="#F1F1F0"/></svg>
+        <span class="brand-text">SMK LPPM RI BANDUNG<span>Unggul - Berkarakter - Siap Kerja</span></span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar" aria-label="Buka menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Tutup"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav ms-auto align-items-xl-center gap-1 gap-xl-3 d-none d-xl-flex">
+            <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="profil.html" id="menu-profil" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profil Sekolah</a><ul class="dropdown-menu" aria-labelledby="menu-profil"><li><a class="dropdown-item item-anchor" href="profil.html">Ringkasan Profil</a></li><li><a class="dropdown-item item-anchor" href="profil.html#sambutan">Sambutan Kepala Sekolah</a></li><li><a class="dropdown-item item-anchor" href="profil.html#sejarah">Sejarah &amp; Keunggulan</a></li><li><a class="dropdown-item item-anchor" href="profil.html#visi-misi">Visi &amp; Misi</a></li><li><a class="dropdown-item item-anchor" href="profil.html#struktur">Struktur Sekolah</a></li><li><a class="dropdown-item item-anchor" href="profil.html#tabel-profil">Data &amp; Tabel Profil</a></li><li><a class="dropdown-item item-anchor" href="profil.html#fasilitas">Fasilitas</a></li></ul></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="jurusan.html" id="menu-akademik" role="button" data-bs-toggle="dropdown" aria-expanded="false">Akademik</a><ul class="dropdown-menu" aria-labelledby="menu-akademik"><li><a class="dropdown-item item-anchor" href="jurusan.html">Jurusan</a></li><li><a class="dropdown-item item-anchor" href="ekstrakurikuler.html">Ekstrakurikuler</a></li></ul></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="berita.html" id="menu-informasi" role="button" data-bs-toggle="dropdown" aria-expanded="false">Informasi</a><ul class="dropdown-menu" aria-labelledby="menu-informasi"><li><a class="dropdown-item item-anchor" href="berita.html">Berita</a></li><li><a class="dropdown-item item-anchor" href="galeri.html">Galeri</a></li><li><a class="dropdown-item item-anchor" href="kontak.html">Kontak</a></li></ul></li>
+            <li class="nav-item ms-xl-3"><a class="btn btn-dark btn-sm px-4 text-uppercase" href="kontak.html">PPDB</a></li>
+          </ul>
+          <div class="d-xl-none w-100">
+            <ul class="navbar-nav gap-1">
+              <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li><li class="nav-item"><button class="nav-link mobile-menu-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#mobile-menu-profil" aria-expanded="false" aria-controls="mobile-menu-profil">Profil Sekolah<span class="menu-caret" aria-hidden="true"></span></button><div class="collapse mobile-submenu" id="mobile-menu-profil"><ul class="list-unstyled mb-0"><li><a class="mobile-submenu-link" href="profil.html">Ringkasan Profil</a></li><li><a class="mobile-submenu-link" href="profil.html#sambutan">Sambutan Kepala Sekolah</a></li><li><a class="mobile-submenu-link" href="profil.html#sejarah">Sejarah &amp; Keunggulan</a></li><li><a class="mobile-submenu-link" href="profil.html#visi-misi">Visi &amp; Misi</a></li><li><a class="mobile-submenu-link" href="profil.html#struktur">Struktur Sekolah</a></li><li><a class="mobile-submenu-link" href="profil.html#tabel-profil">Data &amp; Tabel Profil</a></li><li><a class="mobile-submenu-link" href="profil.html#fasilitas">Fasilitas</a></li></ul></div></li><li class="nav-item"><button class="nav-link mobile-menu-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#mobile-menu-akademik" aria-expanded="false" aria-controls="mobile-menu-akademik">Akademik<span class="menu-caret" aria-hidden="true"></span></button><div class="collapse mobile-submenu" id="mobile-menu-akademik"><ul class="list-unstyled mb-0"><li><a class="mobile-submenu-link" href="jurusan.html">Jurusan</a></li><li><a class="mobile-submenu-link" href="ekstrakurikuler.html">Ekstrakurikuler</a></li></ul></div></li><li class="nav-item"><button class="nav-link mobile-menu-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#mobile-menu-informasi" aria-expanded="false" aria-controls="mobile-menu-informasi">Informasi<span class="menu-caret" aria-hidden="true"></span></button><div class="collapse mobile-submenu" id="mobile-menu-informasi"><ul class="list-unstyled mb-0"><li><a class="mobile-submenu-link" href="berita.html">Berita</a></li><li><a class="mobile-submenu-link" href="galeri.html">Galeri</a></li><li><a class="mobile-submenu-link" href="kontak.html">Kontak</a></li></ul></div></li>
+              <li class="nav-item mt-2"><a class="btn btn-dark btn-sm px-4 text-uppercase w-100" href="kontak.html">PPDB</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+<h1 class="visually-hidden">SMK LPPM RI BANDUNG - Beranda</h1>
+
+<section class="hero-swiper swiper" aria-label="Sorotan sekolah">
+  <div class="swiper-wrapper">
+      <div class="swiper-slide hero-slide" style="background-image: url('images/hero-1.jpg')">
+        <div class="container">
+          <div class="hero-caption">
+            <p class="hero-kicker">Selamat Datang</p>
+            <p class="hero-title">SMK LPPM RI BANDUNG</p>
+            <p>Mencetak lulusan kompeten, berkarakter, dan siap bersaing di dunia industri.</p>
+            <div class="d-flex flex-wrap gap-3 mt-4">
+              <a href="profil.html" class="btn btn-light btn-lg text-uppercase px-4">Profil Sekolah</a>
+              <a href="kontak.html" class="btn btn-outline-light btn-lg text-uppercase px-4">Info PPDB</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-slide hero-slide" style="background-image: url('images/hero-2.jpg')">
+        <div class="container">
+          <div class="hero-caption">
+            <p class="hero-kicker">Kompetensi Keahlian</p>
+            <p class="hero-title">Belajar Sesuai Bidang yang Kamu Pilih</p>
+            <p>TKJ, RPL, DKV, dan Akuntansi dengan pembelajaran berbasis praktik dan proyek nyata.</p>
+            <div class="d-flex flex-wrap gap-3 mt-4">
+              <a href="profil.html" class="btn btn-light btn-lg text-uppercase px-4">Profil Sekolah</a>
+              <a href="kontak.html" class="btn btn-outline-light btn-lg text-uppercase px-4">Info PPDB</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-slide hero-slide" style="background-image: url('images/hero-3.jpg')">
+        <div class="container">
+          <div class="hero-caption">
+            <p class="hero-kicker">Fasilitas Belajar</p>
+            <p class="hero-title">Lingkungan Belajar yang Nyaman</p>
+            <p>Laboratorium komputer, studio desain, perpustakaan, dan ruang praktik yang lengkap.</p>
+            <div class="d-flex flex-wrap gap-3 mt-4">
+              <a href="profil.html" class="btn btn-light btn-lg text-uppercase px-4">Profil Sekolah</a>
+              <a href="kontak.html" class="btn btn-outline-light btn-lg text-uppercase px-4">Info PPDB</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  </div>
+  <div class="swiper-pagination"></div>
+  <div class="icon-arrow icon-arrow-left"><svg width="50" height="50" viewBox="0 0 24 24"><path fill="currentColor" d="M17 11H9.41l3.3-3.29a1 1 0 1 0-1.42-1.42l-5 5a1 1 0 0 0-.21.33a1 1 0 0 0 0 .76a1 1 0 0 0 .21.33l5 5a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.42L9.41 13H17a1 1 0 0 0 0-2Z"/></svg></div>
+  <div class="icon-arrow icon-arrow-right"><svg width="50" height="50" viewBox="0 0 24 24"><path fill="currentColor" d="M17.92 11.62a1 1 0 0 0-.21-.33l-5-5a1 1 0 0 0-1.42 1.42l3.3 3.29H7a1 1 0 0 0 0 2h7.59l-3.3 3.29a1 1 0 0 0 0 1.42a1 1 0 0 0 1.42 0l5-5a1 1 0 0 0 .21-.33a1 1 0 0 0 0-.76Z"/></svg></div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5" data-aos="fade-up">
+        <img src="images/kepala-sekolah.jpg" alt="Drs. Ahmad Fauzi, M.Pd., Kepala Sekolah" class="img-fluid w-100" style="max-height: 520px; object-fit: cover;" loading="lazy">
+      </div>
+      <div class="col-lg-7" data-aos="fade-up" data-aos-delay="200">
+        <p class="text-uppercase fs-6 text-secondary mb-2">Sambutan Kepala Sekolah</p>
+        <h2 class="section-title mb-3">Belajar Hari Ini, Berprestasi Esok Hari</h2>
+        <p>Assalamualaikum warahmatullahi wabarakatuh. Selamat datang di SMK Negeri 1 Nusantara. Kami berkomitmen menyiapkan generasi yang kompeten, berkarakter, dan siap menghadapi dunia kerja maupun melanjutkan pendidikan.</p>
+        <p>Melalui pembelajaran berbasis praktik, kerja sama dengan industri, dan pembinaan karakter, kami percaya setiap siswa dapat tumbuh sesuai potensinya.</p>
+        <a href="profil.html#sambutan" class="btn-link">Baca Selengkapnya &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-4 border-top border-bottom">
+  <!-- TODO: ganti angka statistik di bawah dengan data resmi sekolah (guru, siswa, rombel, jurusan). -->
+  <div class="container">
+    <div class="row">
+        <div class="col-6 col-lg-3 text-center stat-item" data-aos="fade-up" data-aos-delay="0">
+          <div class="stat-number"><span data-count="68">68</span>+</div>
+          <div class="stat-label">Guru &amp; Tenaga Kependidikan</div>
+        </div>
+
+        <div class="col-6 col-lg-3 text-center stat-item" data-aos="fade-up" data-aos-delay="0">
+          <div class="stat-number"><span data-count="1240">1240</span>+</div>
+          <div class="stat-label">Siswa Aktif</div>
+        </div>
+
+        <div class="col-6 col-lg-3 text-center stat-item" data-aos="fade-up" data-aos-delay="0">
+          <div class="stat-number"><span data-count="36">36</span></div>
+          <div class="stat-label">Rombongan Belajar</div>
+        </div>
+
+        <div class="col-6 col-lg-3 text-center stat-item" data-aos="fade-up" data-aos-delay="0">
+          <div class="stat-number"><span data-count="4">4</span></div>
+          <div class="stat-label">Kompetensi Keahlian</div>
+        </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    
+      <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mt-4 mb-4">
+        <div>
+          <p class="text-uppercase fs-6 text-secondary mb-2">Kompetensi Keahlian</p>
+          <h2 class="section-title mb-0">4 Jurusan Unggulan</h2>
+        </div>
+        <a href="jurusan.html" class="btn-link">Semua Jurusan &rarr;</a>
+      </div>
+
+    <div class="row g-4">
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+          <div class="cat-item image-zoom-effect">
+            <div class="image-holder">
+              <a href="jurusan.html#tkj"><img src="images/jurusan-tkj.jpg" alt="Teknik Komputer &amp; Jaringan" class="jurusan-img img-fluid" loading="lazy"></a>
+            </div>
+            <div class="category-content">
+              <h3 class="element-title text-uppercase fs-5 mt-3"><a href="jurusan.html#tkj">Teknik Komputer &amp; Jaringan</a></h3>
+              <p class="fs-6">Belajar jaringan, server, dan keamanan siber.</p>
+              <a href="jurusan.html#tkj" class="btn-link">Lihat Jurusan &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+          <div class="cat-item image-zoom-effect">
+            <div class="image-holder">
+              <a href="jurusan.html#rpl"><img src="images/jurusan-rpl.jpg" alt="Rekayasa Perangkat Lunak" class="jurusan-img img-fluid" loading="lazy"></a>
+            </div>
+            <div class="category-content">
+              <h3 class="element-title text-uppercase fs-5 mt-3"><a href="jurusan.html#rpl">Rekayasa Perangkat Lunak</a></h3>
+              <p class="fs-6">Bangun aplikasi web dan mobile dari nol.</p>
+              <a href="jurusan.html#rpl" class="btn-link">Lihat Jurusan &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+          <div class="cat-item image-zoom-effect">
+            <div class="image-holder">
+              <a href="jurusan.html#dkv"><img src="images/jurusan-dkv.jpg" alt="Desain Komunikasi Visual" class="jurusan-img img-fluid" loading="lazy"></a>
+            </div>
+            <div class="category-content">
+              <h3 class="element-title text-uppercase fs-5 mt-3"><a href="jurusan.html#dkv">Desain Komunikasi Visual</a></h3>
+              <p class="fs-6">Kuasai desain grafis, ilustrasi, dan multimedia.</p>
+              <a href="jurusan.html#dkv" class="btn-link">Lihat Jurusan &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+          <div class="cat-item image-zoom-effect">
+            <div class="image-holder">
+              <a href="jurusan.html#akl"><img src="images/jurusan-akl.jpg" alt="Akuntansi &amp; Keuangan Lembaga" class="jurusan-img img-fluid" loading="lazy"></a>
+            </div>
+            <div class="category-content">
+              <h3 class="element-title text-uppercase fs-5 mt-3"><a href="jurusan.html#akl">Akuntansi &amp; Keuangan Lembaga</a></h3>
+              <p class="fs-6">Kelola laporan keuangan dan administrasi bisnis.</p>
+              <a href="jurusan.html#akl" class="btn-link">Lihat Jurusan &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-light">
+  <div class="container">
+    
+      <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mt-4 mb-4">
+        <div>
+          <p class="text-uppercase fs-6 text-secondary mb-2">Kegiatan Siswa</p>
+          <h2 class="section-title mb-0">Ekstrakurikuler Pilihan</h2>
+        </div>
+        <a href="ekstrakurikuler.html" class="btn-link">Semua Ekstrakurikuler &rarr;</a>
+      </div>
+
+    <div class="row g-4">
+        <div class="col-md-6 col-lg-4" data-category="Kepemimpinan" data-aos="fade-up" data-aos-delay="0">
+          <article class="post-item">
+            <div class="post-image">
+              <img src="images/ekskul-pramuka.jpg" alt="Pramuka" class="card-img-school img-fluid" loading="lazy">
+            </div>
+            <div class="post-content my-3">
+              <p class="text-uppercase fs-6 text-secondary mb-1">Kepemimpinan</p>
+              <h3 class="fs-4">Pramuka</h3>
+              <p>Membentuk disiplin, kemandirian, dan jiwa kepemimpinan.</p>
+              <ul class="list-unstyled fs-6 text-secondary mb-0">
+                <li><span class="text-dark">Pembina:</span> Kak Budi Santoso</li>
+                <li><span class="text-dark">Jadwal:</span> Jumat, 14.00 - 16.00</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-lg-4" data-category="Olahraga" data-aos="fade-up" data-aos-delay="100">
+          <article class="post-item">
+            <div class="post-image">
+              <img src="images/ekskul-futsal.jpg" alt="Futsal" class="card-img-school img-fluid" loading="lazy">
+            </div>
+            <div class="post-content my-3">
+              <p class="text-uppercase fs-6 text-secondary mb-1">Olahraga</p>
+              <h3 class="fs-4">Futsal</h3>
+              <p>Meningkatkan kebugaran, kerja sama tim, dan sportivitas.</p>
+              <ul class="list-unstyled fs-6 text-secondary mb-0">
+                <li><span class="text-dark">Pembina:</span> Coach Rizky Pratama</li>
+                <li><span class="text-dark">Jadwal:</span> Selasa &amp; Kamis, 15.30 - 17.00</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-lg-4" data-category="Akademik" data-aos="fade-up" data-aos-delay="200">
+          <article class="post-item">
+            <div class="post-image">
+              <img src="images/ekskul-robotik.jpg" alt="Robotik" class="card-img-school img-fluid" loading="lazy">
+            </div>
+            <div class="post-content my-3">
+              <p class="text-uppercase fs-6 text-secondary mb-1">Akademik</p>
+              <h3 class="fs-4">Robotik</h3>
+              <p>Merancang robot sederhana dan mengikuti kompetisi teknologi.</p>
+              <ul class="list-unstyled fs-6 text-secondary mb-0">
+                <li><span class="text-dark">Pembina:</span> Ibu Dewi Lestari</li>
+                <li><span class="text-dark">Jadwal:</span> Sabtu, 09.00 - 12.00</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+        <div class="cat-item image-zoom-effect">
+          <div class="image-holder">
+            <a href="ekstrakurikuler.html"><img src="images/ekskul-musik.jpg" alt="Ekstrakurikuler seni musik" class="jurusan-img img-fluid" loading="lazy"></a>
+          </div>
+          <div class="category-content">
+            <h3 class="element-title text-uppercase fs-5 mt-3"><a href="ekstrakurikuler.html">Seni Musik</a></h3>
+            <p class="fs-6">Menumbuhkan kreativitas dan keberanian tampil di panggung.</p>
+            <a href="ekstrakurikuler.html" class="btn-link">Lihat Ekstrakurikuler &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    
+      <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mt-4 mb-4">
+        <div>
+          <p class="text-uppercase fs-6 text-secondary mb-2">Informasi Terbaru</p>
+          <h2 class="section-title mb-0">Berita &amp; Kegiatan Sekolah</h2>
+        </div>
+        <a href="berita.html" class="btn-link">Semua Berita &rarr;</a>
+      </div>
+
+    <div class="row g-4">
+        <div class="col-md-4" data-news-item data-aos="fade-up" data-aos-delay="0">
+          <article class="post-item">
+            <div class="post-image">
+              <a href="berita-ppdb.html"><img src="images/berita-ppdb.jpg" alt="PPDB 2026/2027 Resmi Dibuka" class="post-grid-image img-fluid" loading="lazy"></a>
+            </div>
+            <div class="post-content d-flex flex-wrap gap-2 my-3">
+              <div class="post-meta text-uppercase fs-6 text-secondary">
+                <span class="post-category">PPDB /</span>
+                <span class="meta-day">5 Januari 2026</span>
+              </div>
+              <h3 class="post-title text-uppercase fs-5"><a href="berita-ppdb.html">PPDB 2026/2027 Resmi Dibuka</a></h3>
+              <p>Pendaftaran gelombang pertama dibuka untuk calon siswa baru.</p>
+              <a href="berita-ppdb.html" class="btn-link">Baca Selengkapnya &rarr;</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-md-4" data-news-item data-aos="fade-up" data-aos-delay="100">
+          <article class="post-item">
+            <div class="post-image">
+              <a href="berita-lomba.html"><img src="images/berita-lomba.jpg" alt="Siswa RPL Raih Juara 1 Lomba Web Design" class="post-grid-image img-fluid" loading="lazy"></a>
+            </div>
+            <div class="post-content d-flex flex-wrap gap-2 my-3">
+              <div class="post-meta text-uppercase fs-6 text-secondary">
+                <span class="post-category">Prestasi /</span>
+                <span class="meta-day">22 Februari 2026</span>
+              </div>
+              <h3 class="post-title text-uppercase fs-5"><a href="berita-lomba.html">Siswa RPL Raih Juara 1 Lomba Web Design</a></h3>
+              <p>Tim sekolah berhasil menyisihkan puluhan peserta dari seluruh Indonesia.</p>
+              <a href="berita-lomba.html" class="btn-link">Baca Selengkapnya &rarr;</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-md-4" data-news-item data-aos="fade-up" data-aos-delay="200">
+          <article class="post-item">
+            <div class="post-image">
+              <a href="berita-kunjungan-industri.html"><img src="images/berita-industri.jpg" alt="Kunjungan Industri ke PT Nusantara Teknologi" class="post-grid-image img-fluid" loading="lazy"></a>
+            </div>
+            <div class="post-content d-flex flex-wrap gap-2 my-3">
+              <div class="post-meta text-uppercase fs-6 text-secondary">
+                <span class="post-category">Kegiatan /</span>
+                <span class="meta-day">18 Maret 2026</span>
+              </div>
+              <h3 class="post-title text-uppercase fs-5"><a href="berita-kunjungan-industri.html">Kunjungan Industri ke PT Nusantara Teknologi</a></h3>
+              <p>Siswa kelas XI belajar langsung tentang proses kerja di industri.</p>
+              <a href="berita-kunjungan-industri.html" class="btn-link">Baca Selengkapnya &rarr;</a>
+            </div>
+          </article>
+        </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-light">
+  <div class="container">
+    
+      <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mt-4 mb-4">
+        <div>
+          <p class="text-uppercase fs-6 text-secondary mb-2">Galeri</p>
+          <h2 class="section-title mb-0">Momen Kegiatan Sekolah</h2>
+        </div>
+        <a href="galeri.html" class="btn-link">Buka Galeri &rarr;</a>
+      </div>
+
+    <div class="row g-3">
+        <div class="col-6 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="0">
+          <a href="galeri.html" class="gallery-item">
+            <img src="images/galeri-1.jpg" alt="Kegiatan belajar di kelas" loading="lazy">
+            <span class="gallery-overlay"><svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6V5Z"/></svg></span>
+          </a>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="50">
+          <a href="galeri.html" class="gallery-item">
+            <img src="images/galeri-2.jpg" alt="Seminar motivasi siswa" loading="lazy">
+            <span class="gallery-overlay"><svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6V5Z"/></svg></span>
+          </a>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="100">
+          <a href="galeri.html" class="gallery-item">
+            <img src="images/galeri-3.jpg" alt="Kerja kelompok di perpustakaan" loading="lazy">
+            <span class="gallery-overlay"><svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6V5Z"/></svg></span>
+          </a>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="150">
+          <a href="galeri.html" class="gallery-item">
+            <img src="images/galeri-5.jpg" alt="Diskusi kelompok" loading="lazy">
+            <span class="gallery-overlay"><svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6V5Z"/></svg></span>
+          </a>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="200">
+          <a href="galeri.html" class="gallery-item">
+            <img src="images/galeri-10.jpg" alt="Praktik komputer" loading="lazy">
+            <span class="gallery-overlay"><svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6V5Z"/></svg></span>
+          </a>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="250">
+          <a href="galeri.html" class="gallery-item">
+            <img src="images/galeri-9.jpg" alt="Wisuda siswa" loading="lazy">
+            <span class="gallery-overlay"><svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6V5Z"/></svg></span>
+          </a>
+        </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="testimonials py-5">
+  <div class="section-header text-center mt-4">
+    <p class="text-uppercase fs-6 text-secondary mb-2">Kata Mereka</p>
+    <h2 class="section-title">Testimoni Alumni &amp; Siswa</h2>
+  </div>
+  <div class="swiper testimonial-swiper overflow-hidden my-5">
+    <div class="swiper-wrapper d-flex">
+      <div class="swiper-slide">
+        <div class="testimonial-item text-center">
+          <blockquote>
+            <p>&ldquo;Bekal praktik di sekolah membuat saya percaya diri saat masuk dunia kerja.&rdquo;</p>
+            <div class="review-title text-uppercase">Alumni RPL 2023 - Web Developer</div>
+          </blockquote>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="testimonial-item text-center">
+          <blockquote>
+            <p>&ldquo;Guru-gurunya suportif dan fasilitas laboratoriumnya lengkap.&rdquo;</p>
+            <div class="review-title text-uppercase">Alumni TKJ 2022 - Teknisi Jaringan</div>
+          </blockquote>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="testimonial-item text-center">
+          <blockquote>
+            <p>&ldquo;Ekstrakurikuler robotik mengasah kemampuan problem solving saya.&rdquo;</p>
+            <div class="review-title text-uppercase">Siswa Kelas XII RPL</div>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="testimonial-swiper-pagination d-flex justify-content-center mb-4"></div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-3">
+        <p class="text-uppercase fs-6 text-secondary mb-2">Mitra Industri</p>
+        <h2 class="section-title mb-0">Belajar Langsung dari Dunia Kerja</h2>
+      </div>
+      <div class="col-lg-9">
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-4">
+          <span class="partner-name">PT Nusantara Teknologi</span>
+          <span class="partner-name">CV Digital Kreatif</span>
+          <span class="partner-name">Bank Cendekia</span>
+          <span class="partner-name">PT Jaringan Mandiri</span>
+          <span class="partner-name">Studio Visual Nusa</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="cta-band">
+  <div class="container">
+    <div class="row align-items-center justify-content-between g-4">
+      <div class="col-lg-8">
+        <h2 class="section-title">Siap Bergabung Bersama Kami?</h2>
+        <p class="mb-0">Daftarkan dirimu pada penerimaan siswa baru atau hubungi kami untuk informasi lebih lanjut.</p>
+      </div>
+      <div class="col-lg-auto">
+        <a href="kontak.html" class="btn btn-dark btn-lg text-uppercase px-4">Hubungi Kami</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</main>
+
+<footer id="footer" class="mt-5">
+  <div class="container">
+    <div class="row d-flex flex-wrap justify-content-between py-5">
+      <div class="col-md-3 col-sm-6">
+        <div class="footer-menu footer-menu-001">
+          <div class="footer-intro mb-4">
+            <a href="index.html" class="d-inline-flex align-items-center gap-2 text-decoration-none">
+              <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#8C907E"/><path d="M32 13 10 24l22 11 18-9v13h4V24L32 13Z" fill="#F1F1F0"/><path d="M18 34v9c0 5 6.3 9 14 9s14-4 14-9v-9l-14 7-14-7Z" fill="#F1F1F0"/></svg>
+              <span class="brand-text">SMK LPPM RI BANDUNG</span>
+            </a>
+          </div>
+          <p>Sekolah menengah kejuruan yang menyiapkan lulusan kompeten, berkarakter, dan siap bekerja maupun melanjutkan pendidikan.</p>
+          <div class="social-links">
+            <ul class="list-unstyled d-flex flex-wrap gap-3">
+              <li><a href="https://www.instagram.com/it.smklppmribdg?exln=NmhkdnY4aW95aHU0" target="_blank" rel="noopener" class="text-secondary" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor"/></svg></a></li>
+              <li><a href="https://www.youtube.com/@ITLPPMRIBDG" target="_blank" rel="noopener" class="text-secondary" aria-label="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="4" fill="currentColor"/><path d="m10 9 5.5 3L10 15V9Z" fill="#fff"/></svg></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="footer-menu footer-menu-002">
+          <h5 class="widget-title text-uppercase mb-4">Menu Cepat</h5>
+          <ul class="menu-list list-unstyled text-uppercase border-animation-left fs-6">
+            <li class="menu-item"><a href="index.html" class="item-anchor">Beranda</a></li>
+            <li class="menu-item"><a href="profil.html" class="item-anchor">Profil Sekolah</a></li>
+            <li class="menu-item"><a href="jurusan.html" class="item-anchor">Kompetensi Keahlian</a></li>
+            <li class="menu-item"><a href="ekstrakurikuler.html" class="item-anchor">Ekstrakurikuler</a></li>
+            <li class="menu-item"><a href="berita.html" class="item-anchor">Berita</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="footer-menu footer-menu-003">
+          <h5 class="widget-title text-uppercase mb-4">Informasi</h5>
+          <ul class="menu-list list-unstyled text-uppercase border-animation-left fs-6">
+            <li class="menu-item"><a href="kontak.html" class="item-anchor">Penerimaan Siswa Baru</a></li>
+            <li class="menu-item"><a href="galeri.html" class="item-anchor">Galeri Kegiatan</a></li>
+            <li class="menu-item"><a href="profil.html#tabel-profil" class="item-anchor">Data Sekolah</a></li>
+            <li class="menu-item"><a href="profil.html#fasilitas" class="item-anchor">Fasilitas</a></li>
+            <li class="menu-item"><a href="kontak.html" class="item-anchor">Hubungi Kami</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="footer-menu footer-menu-004 border-animation-left">
+          <h5 class="widget-title text-uppercase mb-4">Kontak</h5>
+          <p class="mb-2">Jl. Ters. Nilem Barat No.49 B, Pasirluyu, Kec. Regol, Kota Bandung, Jawa Barat 40254</p>
+          <p class="mb-2"><a href="tel:+62882002227066" class="item-anchor">+62 882002227066</a></p>
+          <p class="mb-2"><a href="mailto:info@smklppmribdg.sch.id" class="item-anchor">info@smklppmribdg.sch.id</a></p>
+          <p class="mb-0">Senin - Jumat, 07.00 - 16.00 WIB</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="border-top py-4">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <p class="mb-0">&copy; 2026 SMK LPPM RI BANDUNG.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  <a href="#" class="btn btn-dark back-to-top" aria-label="Kembali ke atas"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 4 5 11h4v9h6v-9h4L12 4Z"/></svg></a>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/swiper-bundle.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/school.js"></script>
+</body>
+</html>
