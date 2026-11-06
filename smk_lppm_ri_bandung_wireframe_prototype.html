@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireframe Prototype - SMK LPPM RI Bandung</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        wireframe: {
+                            bg: '#f8f9fa',
+                            card: '#ffffff',
+                            border: '#333333',
+                            lightBorder: '#cccccc',
+                            text: '#222222',
+                            muted: '#666666',
+                            placeholder: '#e5e7eb',
+                            cross: '#9ca3af'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f5f7;
+            color: #222;
+        }
+        /* Wireframe Image Placeholder with Cross */
+        .wireframe-img {
+            background-color: #e2e8f0;
+            border: 2px dashed #64748b;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .wireframe-img::before, .wireframe-img::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to bottom right, transparent calc(50% - 1px), #94a3b8 calc(50% - 1px), #94a3b8 calc(50% + 1px), transparent calc(50% + 1px)),
+                        linear-gradient(to top right, transparent calc(50% - 1px), #94a3b8 calc(50% - 1px), #94a3b8 calc(50% + 1px), transparent calc(50% + 1px));
+            pointer-events: none;
+        }
+        .wireframe-box {
+            border: 2px solid #222;
+            background: #ffffff;
+        }
+        .wireframe-btn {
+            border: 2px solid #222;
+            background: #ffffff;
+            transition: all 0.2s;
+        }
+        .wireframe-btn:hover {
+            background: #222;
+            color: #fff;
+        }
+        /* Custom scrollbar for wireframe feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e2e8f0;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #64748b;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-black selection:text-white">
+
+    <!-- Top Wireframe Frame Bar / Helper Header -->
+    <header class="bg-black text-white px-4 py-2 text-xs flex flex-wrap justify-between items-center border-b border-gray-800 sticky top-0 z-50">
+        <div class="flex items-center space-x-2">
+            <span class="inline-block w-3 h-3 bg-white rounded-full animate-pulse"></span>
+            <span class="font-semibold tracking-wider uppercase">[ WIREFRAME UI PROTOTYPE ]</span>
+            <span class="text-gray-400 hidden sm:inline">| SMK LPPM RI Bandung</span>
+        </div>
+        <div class="flex items-center space-x-2 overflow-x-auto py-1">
+            <span class="text-gray-400 text-[11px] mr-1">Quick Nav:</span>
+            <button onclick="switchPage('home')" class="px-2 py-0.5 bg-gray-800 hover:bg-white hover:text-black rounded border border-gray-600 transition">Beranda</button>
+            <button onclick="switchPage('profil')" class="px-2 py-0.5 bg-gray-800 hover:bg-white hover:text-black rounded border border-gray-600 transition">Profil</button>
+            <button onclick="switchPage('jurusan')" class="px-2 py-0.5 bg-gray-800 hover:bg-white hover:text-black rounded border border-gray-600 transition">Jurusan</button>
+            <button onclick="switchPage('ekskul')" class="px-2 py-0.5 bg-gray-800 hover:bg-white hover:text-black rounded border border-gray-600 transition">Ekskul</button>
+            <button onclick="switchPage('berita')" class="px-2 py-0.5 bg-gray-800 hover:bg-white hover:text-black rounded border border-gray-600 transition">Berita</button>
+            <button onclick="switchPage('galeri')" class="px-2 py-0.5 bg-gray-800 hover:bg-white hover:text-black rounded border border-gray-600 transition">Galeri</button>
+            <button onclick="switchPage('kontak')" class="px-2 py-0.5 bg-gray-800 hover:bg-white hover:text-black rounded border border-gray-600 transition">Kontak</button>
+        </div>
+    </header>
+
+    <!-- Main Website Navigation Header -->
+    <nav class="bg-white border-b-2 border-black py-3 px-6 md:px-12 flex justify-between items-center shadow-sm">
+        <div class="flex items-center space-x-3 cursor-pointer" onclick="switchPage('home')">
+            <div class="wireframe-img w-9 h-9 rounded flex items-center justify-center text-[10px] font-bold">LOGO</div>
+            <div>
+                <h1 class="font-bold text-sm tracking-tight leading-tight">SMK LPPM RI BANDUNG</h1>
+                <p class="text-[10px] text-gray-500 uppercase tracking-widest">Unggul • Berkarakter • Siap Kerja</p>
+            </div>
+        </div>
+        <div class="hidden lg:flex items-center space-x-6 text-sm font-medium">
+            <button onclick="switchPage('home')" id="nav-home" class="nav-link hover:underline underline-offset-4">BERANDA</button>
+            <button onclick="switchPage('profil')" id="nav-profil" class="nav-link hover:underline underline-offset-4">PROFIL SEKOLAH ▾</button>
+            <button onclick="switchPage('jurusan')" id="nav-jurusan" class="nav-link hover:underline underline-offset-4">AKADEMIK ▾</button>
+            <button onclick="switchPage('ekskul')" id="nav-ekskul" class="nav-link hover:underline underline-offset-4">EKSTRAKURIKULER</button>
+            <button onclick="switchPage('berita')" id="nav-berita" class="nav-link hover:underline underline-offset-4">BERITA</button>
+            <button onclick="switchPage('galeri')" id="nav-galeri" class="nav-link hover:underline underline-offset-4">GALERI</button>
+            <button onclick="switchPage('kontak')" id="nav-kontak" class="nav-link hover:underline underline-offset-4">KONTAK</button>
+        </div>
+        <div>
+            <button onclick="switchPage('kontak')" class="bg-black text-white px-4 py-1.5 text-xs font-bold uppercase tracking-wider border-2 border-black hover:bg-white hover:text-black transition">
+                PPDB 2026
+            </button>
+        </div>
+    </nav>
+
+    <!-- Dynamic Content Container -->
+    <main class="flex-grow">
+
+        <!-- ================= PAGE 1: BERANDA ================= -->
+        <div id="page-home" class="page-content space-y-12 pb-16">
+            <!-- Hero Section -->
+            <section class="relative bg-gray-200 border-b-2 border-black py-20 px-6 text-center">
+                <div class="wireframe-img absolute inset-0 opacity-20 pointer-events-none"></div>
+                <div class="max-w-3xl mx-auto relative z-10 space-y-4">
+                    <p class="text-xs uppercase tracking-widest text-gray-600 font-semibold">[ LINGKUNGAN BELAJAR ]</p>
+                    <h2 class="text-3xl md:text-5xl font-bold tracking-tight">Lingkungan Belajar yang Nyaman</h2>
+                    <p class="text-sm md:text-base text-gray-700">Suasana belajar kondusif dengan fasilitas modern untuk menunjang kompetensi siswa berstandar industri.</p>
+                    <div class="pt-2 flex justify-center space-x-3">
+                        <button onclick="switchPage('profil')" class="wireframe-btn px-6 py-2 text-xs font-bold uppercase">Lihat Profil</button>
+                        <button onclick="switchPage('jurusan')" class="bg-black text-white px-6 py-2 text-xs font-bold uppercase border-2 border-black hover:bg-white hover:text-black transition">Eksplor Jurusan</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Principal Welcome / Intro -->
+            <section class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                <div class="wireframe-img h-64 md:h-80 rounded-lg">
+                    <span class="text-xs font-mono text-gray-500">[ FOTO KEPALA SEKOLAH ]</span>
+                </div>
+                <div class="md:col-span-2 space-y-4">
+                    <span class="text-xs uppercase tracking-widest text-gray-500 font-semibold">— Sambutan Kepala Sekolah</span>
+                    <h3 class="text-2xl font-bold">Belajar Hari Ini, Berprestasi Esok Hari</h3>
+                    <p class="text-sm text-gray-700 leading-relaxed">
+                        Selamat datang di SMK LPPM RI Bandung. Kami berkomitmen memberikan pendidikan kejuruan berkualitas tinggi dengan kurikulum berbasis industri, melahirkan lulusan berkarakter mulia, kompeten, dan siap bersaing di dunia kerja maupun perguruan tinggi.
+                    </p>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-gray-300 text-center">
+                        <div>
+                            <div class="text-xl font-bold">68+</div>
+                            <div class="text-[11px] text-gray-500">Mitra Industri</div>
+                        </div>
+                        <div>
+                            <div class="text-xl font-bold">1.240+</div>
+                            <div class="text-[11px] text-gray-500">Siswa Aktif</div>
+                        </div>
+                        <div>
+                            <div class="text-xl font-bold">36</div>
+                            <div class="text-[11px] text-gray-500">Tenaga Pendidik</div>
+                        </div>
+                        <div>
+                            <div class="text-xl font-bold">4</div>
+                            <div class="text-[11px] text-gray-500">Program Keahlian</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4 Jurusan Unggulan -->
+            <section class="max-w-6xl mx-auto px-6 space-y-6">
+                <div class="flex justify-between items-end border-b-2 border-black pb-2">
+                    <div>
+                        <span class="text-xs uppercase tracking-widest text-gray-500 font-semibold">[ PROGRAM KEAHLIAN ]</span>
+                        <h3 class="text-2xl font-bold">4 Jurusan Unggulan</h3>
+                    </div>
+                    <button onclick="switchPage('jurusan')" class="text-xs font-bold underline hover:text-gray-600">Lihat Semua →</button>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="wireframe-box p-4 rounded-lg space-y-3 cursor-pointer hover:shadow-md transition" onclick="switchPage('jurusan')">
+                        <div class="wireframe-img h-36 rounded"></div>
+                        <h4 class="font-bold text-sm">Teknik Komputer & Jaringan</h4>
+                        <p class="text-xs text-gray-600">Jaringan komputer, server admin, dan troubleshooting hardware.</p>
+                        <span class="text-[11px] font-bold underline">Baca Selengkapnya</span>
+                    </div>
+                    <div class="wireframe-box p-4 rounded-lg space-y-3 cursor-pointer hover:shadow-md transition" onclick="switchPage('jurusan')">
+                        <div class="wireframe-img h-36 rounded"></div>
+                        <h4 class="font-bold text-sm">Rekayasa Perangkat Lunak</h4>
+                        <p class="text-xs text-gray-600">Pemrograman web, mobile app, database, dan software engineering.</p>
+                        <span class="text-[11px] font-bold underline">Baca Selengkapnya</span>
+                    </div>
+                    <div class="wireframe-box p-4 rounded-lg space-y-3 cursor-pointer hover:shadow-md transition" onclick="switchPage('jurusan')">
+                        <div class="wireframe-img h-36 rounded"></div>
+                        <h4 class="font-bold text-sm">Desain Komunikasi Visual</h4>
+                        <p class="text-xs text-gray-600">Desain grafis, multimedia, videografi, dan ilustrasi digital.</p>
+                        <span class="text-[11px] font-bold underline">Baca Selengkapnya</span>
+                    </div>
+                    <div class="wireframe-box p-4 rounded-lg space-y-3 cursor-pointer hover:shadow-md transition" onclick="switchPage('jurusan')">
+                        <div class="wireframe-img h-36 rounded"></div>
+                        <h4 class="font-bold text-sm">Akuntansi & Keuangan Lembaga</h4>
+                        <p class="text-xs text-gray-600">Pengelolaan keuangan, akuntansi perusahaan, dan perbankan dasar.</p>
+                        <span class="text-[11px] font-bold underline">Baca Selengkapnya</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Ekstrakurikuler Pilihan -->
+            <section class="max-w-6xl mx-auto px-6 space-y-6">
+                <div class="flex justify-between items-end border-b-2 border-black pb-2">
+                    <div>
+                        <span class="text-xs uppercase tracking-widest text-gray-500 font-semibold">[ PENGEMBANGAN DIRI ]</span>
+                        <h3 class="text-2xl font-bold">Ekstrakurikuler Pilihan</h3>
+                    </div>
+                    <button onclick="switchPage('ekskul')" class="text-xs font-bold underline hover:text-gray-600">Lihat Semua →</button>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="wireframe-box p-4 rounded-lg space-y-3">
+                        <div class="wireframe-img h-32 rounded"></div>
+                        <h4 class="font-bold text-sm">Pramuka</h4>
+                        <p class="text-xs text-gray-600">Membentuk kedisiplinan, kemandirian, dan kepemimpinan.</p>
+                        <div class="text-[10px] text-gray-500 border-t pt-2">Jadwal: Jumat, 14.00 - 16.00</div>
+                    </div>
+                    <div class="wireframe-box p-4 rounded-lg space-y-3">
+                        <div class="wireframe-img h-32 rounded"></div>
+                        <h4 class="font-bold text-sm">Futsal</h4>
+                        <p class="text-xs text-gray-600">Meningkatkan kebugaran, kerjasama tim, dan sportifitas.</p>
+                        <div class="text-[10px] text-gray-500 border-t pt-2">Jadwal: Selasa & Kamis</div>
+                    </div>
+                    <div class="wireframe-box p-4 rounded-lg space-y-3">
+                        <div class="wireframe-img h-32 rounded"></div>
+                        <h4 class="font-bold text-sm">Robotik</h4>
+                        <p class="text-xs text-gray-600">Merancang robot sederhana dan kompetisi teknologi.</p>
+                        <div class="text-[10px] text-gray-500 border-t pt-2">Jadwal: Sabtu, 09.00 - 12.00</div>
+                    </div>
+                    <div class="wireframe-box p-4 rounded-lg space-y-3">
+                        <div class="wireframe-img h-32 rounded"></div>
+                        <h4 class="font-bold text-sm">Seni Musik</h4>
+                        <p class="text-xs text-gray-600">Menumbuhkan kreativitas melalui latihan vokal & instrumen.</p>
+                        <div class="text-[10px] text-gray-500 border-t pt-2">Jadwal: Sabtu, 10.00 - 12.00</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Berita & Kegiatan Sekolah -->
+            <section class="max-w-6xl mx-auto px-6 space-y-6">
+                <div class="flex justify-between items-end border-b-2 border-black pb-2">
+                    <div>
+                        <span class="text-xs uppercase tracking-widest text-gray-500 font-semibold">[ INFORMASI TERBARU ]</span>
+                        <h3 class="text-2xl font-bold">Berita & Kegiatan Sekolah</h3>
+                    </div>
+                    <button onclick="switchPage('berita')" class="text-xs font-bold underline hover:text-gray-600">Lihat Semua →</button>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="wireframe-box p-4 rounded-lg space-y-3 cursor-pointer" onclick="switchPage('detail-berita')">
+                        <div class="wireframe-img h-40 rounded"></div>
+                        <span class="text-[10px] bg-gray-200 px-2 py-0.5 rounded uppercase font-semibold">PPDB / 5 Januari 2026</span>
+                        <h4 class="font-bold text-sm">PPDB 2026/2027 Resmi Dibuka</h4>
+                        <p class="text-xs text-gray-600">Pendaftaran gelombang pertama dibuka untuk calon siswa baru.</p>
+                        <span class="text-xs font-bold underline inline-block pt-1">Baca Selengkapnya →</span>
+                    </div>
+                    <div class="wireframe-box p-4 rounded-lg space-y-3 cursor-pointer" onclick="switchPage('detail-berita')">
+                        <div class="wireframe-img h-40 rounded"></div>
+                        <span class="text-[10px] bg-gray-200 px-2 py-0.5 rounded uppercase font-semibold">Prestasi / 22 Februari 2026</span>
+                        <h4 class="font-bold text-sm">Siswa RPL Raih Juara 1 Lomba Web Design</h4>
+                        <p class="text-xs text-gray-600">Tim sekolah berhasil menyisihkan puluhan peserta nasional.</p>
+                        <span class="text-xs font-bold underline inline-block pt-1">Baca Selengkapnya →</span>
+                    </div>
+                    <div class="wireframe-box p-4 rounded-lg space-y-3 cursor-pointer" onclick="switchPage('detail-berita')">
+                        <div class="wireframe-img h-40 rounded"></div>
+                        <span class="text-[10px] bg-gray-200 px-2 py-0.5 rounded uppercase font-semibold">Kegiatan / 18 Maret 2026</span>
+                        <h4 class="font-bold text-sm">Kunjungan Industri ke PT Nusantara Teknologi</h4>
+                        <p class="text-xs text-gray-600">Siswa kelas XI belajar langsung tentang proses kerja dunia industri.</p>
+                        <span class="text-xs font-bold underline inline-block pt-1">Baca Selengkapnya →</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA Call to Action -->
+            <section class="max-w-6xl mx-auto px-6">
+                <div class="wireframe-box bg-gray-100 p-8 md:p-12 rounded-lg flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+                    <div class="space-y-2 text-center md:text-left">
+                        <h3 class="text-2xl font-bold">Slap Bergabung Bersama Kami?</h3>
+                        <p class="text-xs md:text-sm text-gray-600 max-w-lg">Wujudkan masa depan cemerlang melalui pendidikan kejuruan berkualitas di SMK LPPM RI Bandung.</p>
+                    </div>
+                    <button onclick="switchPage('kontak')" class="bg-black text-white px-8 py-3 text-xs font-bold uppercase tracking-wider border-2 border-black hover:bg-white hover:text-black transition">
+                        Hubungi Sekolah
+                    </button>
+                </div>
+            </section>
+        </div>
+
+
+        <!-- ================= PAGE 2: PROFIL SEKOLAH ================= -->
+        <div id="page-profil" class="page-content hidden space-y-12 pb-16">
+            <!-- Header Banner -->
+            <section class="bg-gray-200 border-b-2 border-black py-12 px-6 text-center">
+                <div class="max-w-3xl mx-auto space-y-2">
+                    <p class="text-xs uppercase tracking-widest text-gray-600 font-semibold">Beranda / Profil Sekolah</p>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Profil Sekolah</h2>
+                    <p class="text-sm text-gray-700">Mengenal lebih dekat sejarah, visi misi, dan identitas SMK LPPM RI Bandung.</p>
+                </div>
+            </section>
+
+            <!-- Sejarah & Keunggulan -->
+            <section class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="wireframe-box p-6 rounded-lg space-y-4">
+                    <span class="text-xs uppercase font-semibold text-gray-500">— Sejarah Singkat</span>
+                    <h3 class="text-xl font-bold">Perjalanan Panjang Pendidikan Berkualitas</h3>
+                    <p class="text-xs text-gray-700 leading-relaxed">
+                        Didirikan sejak tahun 1992, SMK LPPM RI Bandung telah konsisten mencetak lulusan kompeten yang siap terjun ke dunia kerja maupun melanjutkan pendidikan tinggi. Berawal dari visi untuk memajukan pendidikan kejuruan di Kota Bandung, sekolah terus berkembang pesat.
+                    </p>
+                    <p class="text-xs text-gray-700 leading-relaxed">
+                        Dengan fasilitas praktik yang terus diperbarui serta tenaga pengajar profesional berdedikasi tinggi, sekolah menjadi salah satu rujukan pendidikan kejuruan favorit di wilayah Regol, Bandung.
+                    </p>
+                </div>
+                <div class="wireframe-box p-6 rounded-lg space-y-4">
+                    <span class="text-xs uppercase font-semibold text-gray-500">— Keunggulan Sekolah</span>
+                    <h3 class="text-xl font-bold">Mengapa Memilih Kami?</h3>
+                    <ul class="space-y-3 text-xs text-gray-700">
+                        <li class="flex items-start space-x-2">
+                            <span class="font-bold">✓</span>
+                            <span><strong>Kurikulum Berbasis Industri:</strong> Materi disesuaikan langsung dengan kebutuhan dunia kerja saat ini.</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <span class="font-bold">✓</span>
+                            <span><strong>Fasilitas Lengkap:</strong> Lab komputer modern, ruang praktik kejuruan, dan perpustakaan digital.</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <span class="font-bold">✓</span>
+                            <span><strong>Penyaluran Kerja (BKK):</strong> Bursa Kerja Khusus aktif yang menjembatani lulusan dengan perusahaan mitra.</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <span class="font-bold">✓</span>
+                            <span><strong>Pengembangan Karakter:</strong> Kegiatan ekstrakurikuler beragam untuk membentuk soft skills yang unggul.</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Visi & Misi -->
+            <section class="max-w-6xl mx-auto px-6">
+                <div class="wireframe-box p-8 rounded-lg space-y-6">
+                    <div class="text-center space-y-1">
+                        <span class="text-xs uppercase font-semibold text-gray-500">[ ARAH TUJUAN ]</span>
+                        <h3 class="text-2xl font-bold">Visi & Misi Sekolah</h3>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4 border-t border-gray-300">
+                        <div class="space-y-2">
+                            <h4 class="font-bold text-sm uppercase">Visi</h4>
+                            <p class="text-xs text-gray-700 bg-gray-50 p-4 rounded border border-gray-200">
+                                "Menjadi SMK unggul yang menghasilkan lulusan kompeten, berkarakter mulia, berjiwa wirausaha, serta siap bersaing di tingkat nasional dan global."
+                            </p>
+                        </div>
+                        <div class="space-y-2">
+                            <h4 class="font-bold text-sm uppercase">Misi</h4>
+                            <ul class="text-xs text-gray-700 space-y-2 bg-gray-50 p-4 rounded border border-gray-200 list-decimal list-inside">
+                                <li>Menyelenggarakan pembelajaran berkualitas berbasis praktik dan industri.</li>
+                                <li>Membentuk karakter disiplin, jujur, dan bertanggung jawab.</li>
+                                <li>Mengembangkan kompetensi kewirausahaan mandiri bagi peserta didik.</li>
+                                <li>Menjalin kemitraan strategis dengan dunia usaha dan dunia industri.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tabel Informasi Profil Sekolah -->
+            <section class="max-w-6xl mx-auto px-6 space-y-4">
+                <div class="border-b-2 border-black pb-2">
+                    <span class="text-xs uppercase font-semibold text-gray-500">[ DATA RESMI ]</span>
+                    <h3 class="text-xl font-bold">Tabel Informasi Profil Sekolah</h3>
+                </div>
+                <div class="wireframe-box overflow-x-auto rounded-lg">
+                    <table class="w-full text-left text-xs">
+                        <tbody class="divide-y divide-gray-300">
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-bold w-1/3">Nama Sekolah</td><td class="p-3">SMK LPPM RI Bandung</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-bold">NPSN</td><td class="p-3">20219205</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-bold">Status</td><td class="p-3">Swasta</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-bold">Akreditasi</td><td class="p-3">B (Unggul)</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-bold">Kurikulum</td><td class="p-3">Kurikulum Merdeka / Nasional</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-bold">Tahun Berdiri</td><td class="p-3">1992</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-bold">Kepala Sekolah</td><td class="p-3">Drs. H. Dedi Mulyana, M.Pd.</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-bold">Alamat</td><td class="p-3">Jl. Ters. Nilem Barat No.49 B, Pasirluyu, Kec. Regol, Kota Bandung, Jawa Barat 40254</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-bold">Telepon / WhatsApp</td><td class="p-3">+62 882002227066 / 0820-0222-7066</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-bold">Email</td><td class="p-3">info@smklppmribdg.sch.id</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+
+
+        <!-- ================= PAGE 3: JURUSAN ================= -->
+        <div id="page-jurusan" class="page-content hidden space-y-12 pb-16">
+            <!-- Header Banner -->
+            <section class="bg-gray-200 border-b-2 border-black py-12 px-6 text-center">
+                <div class="max-w-3xl mx-auto space-y-2">
+                    <p class="text-xs uppercase tracking-widest text-gray-600 font-semibold">Beranda / Kompetensi Keahlian</p>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Kompetensi Keahlian</h2>
+                    <p class="text-sm text-gray-700">Empat jurusan pilihan dengan pembelajaran berbasis praktik dan kebutuhan industri nyata.</p>
+                </div>
+            </section>
+
+            <!-- Tab Jurusan Selector -->
+            <section class="max-w-6xl mx-auto px-6">
+                <div class="flex flex-wrap justify-center gap-2 border-b-2 border-black pb-4">
+                    <button onclick="selectJurusan('rpl')" id="btn-rpl" class="px-4 py-2 text-xs font-bold uppercase border-2 border-black bg-black text-white transition">Rekayasa Perangkat Lunak</button>
+                    <button onclick="selectJurusan('tkj')" id="btn-tkj" class="px-4 py-2 text-xs font-bold uppercase border-2 border-black bg-white text-black hover:bg-gray-100 transition">Teknik Komputer & Jaringan</button>
+                    <button onclick="selectJurusan('dkv')" id="btn-dkv" class="px-4 py-2 text-xs font-bold uppercase border-2 border-black bg-white text-black hover:bg-gray-100 transition">Desain Komunikasi Visual</button>
+                    <button onclick="selectJurusan('akl')" id="btn-akl" class="px-4 py-2 text-xs font-bold uppercase border-2 border-black bg-white text-black hover:bg-gray-100 transition">Akuntansi & Keuangan</button>
+                </div>
+
+                <!-- Jurusan Detail View Area -->
+                <div id="jurusan-detail" class="mt-8 wireframe-box p-6 md:p-8 rounded-lg grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="wireframe-img h-64 md:h-72 rounded-lg">
+                        <span class="text-xs font-mono text-gray-500">[ GAMBAR LAB JURUSAN ]</span>
+                    </div>
+                    <div class="space-y-4">
+                        <span class="text-xs uppercase font-semibold text-gray-500" id="jurusan-badge">Kompetensi Keahlian Unggulan</span>
+                        <h3 class="text-2xl font-bold" id="jurusan-title">Rekayasa Perangkat Lunak</h3>
+                        <p class="text-xs text-gray-700 leading-relaxed" id="jurusan-desc">
+                            Mempelajari pemrograman web, mobile application, basis data, serta rekayasa pembuatan perangkat lunak secara terstruktur sesuai standar industri software house modern.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4 pt-2">
+                            <div>
+                                <h4 class="font-bold text-xs uppercase mb-1">Prospek Karir:</h4>
+                                <ul class="text-[11px] text-gray-600 space-y-1 list-disc list-inside" id="jurusan-career">
+                                    <li>Web Developer</li>
+                                    <li>Mobile Developer</li>
+                                    <li>Quality Assurance</li>
+                                    <li>Data Analyst</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xs uppercase mb-1">Fasilitas Praktik:</h4>
+                                <ul class="text-[11px] text-gray-600 space-y-1 list-disc list-inside" id="jurusan-facility">
+                                    <li>Laboratorium Pemrograman</li>
+                                    <li>Server Pengembangan</li>
+                                    <li>Praktik Proyek Aplikasi</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pt-4">
+                            <button onclick="switchPage('kontak')" class="bg-black text-white px-5 py-2 text-xs font-bold uppercase border-2 border-black hover:bg-white hover:text-black transition">Tanya Jurusan Ini</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Konsultasi Section -->
+            <section class="max-w-6xl mx-auto px-6">
+                <div class="wireframe-box bg-gray-100 p-8 rounded-lg flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <div>
+                        <h3 class="text-xl font-bold">Belum Yakin Memilih Jurusan?</h3>
+                        <p class="text-xs text-gray-600">Konsultasikan minat dan bakatmu dengan guru bimbingan konseling kami secara gratis.</p>
+                    </div>
+                    <button onclick="switchPage('kontak')" class="wireframe-btn px-6 py-2.5 text-xs font-bold uppercase">Konsultasi Sekarang</button>
+                </div>
+            </section>
+        </div>
+
+
+        <!-- ================= PAGE 4: EKSTRAKURIKULER ================= -->
+        <div id="page-ekskul" class="page-content hidden space-y-12 pb-16">
+            <!-- Header Banner -->
+            <section class="bg-gray-200 border-b-2 border-black py-12 px-6 text-center">
+                <div class="max-w-3xl mx-auto space-y-2">
+                    <p class="text-xs uppercase tracking-widest text-gray-600 font-semibold">Beranda / Ekstrakurikuler</p>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Ekstrakurikuler Sekolah</h2>
+                    <p class="text-sm text-gray-700">Wadah untuk mengembangkan bakat, minat, dan karakter siswa di luar jam pelajaran.</p>
+                </div>
+            </section>
+
+            <!-- Filter Categories -->
+            <section class="max-w-6xl mx-auto px-6 space-y-8">
+                <div class="flex flex-wrap justify-center gap-2 text-xs font-semibold">
+                    <button class="px-3 py-1.5 border-2 border-black bg-black text-white rounded">SEMUA</button>
+                    <button class="px-3 py-1.5 border-2 border-black bg-white text-black hover:bg-gray-100 rounded">KEPEMIMPINAN</button>
+                    <button class="px-3 py-1.5 border-2 border-black bg-white text-black hover:bg-gray-100 rounded">OLAHRAGA</button>
+                    <button class="px-3 py-1.5 border-2 border-black bg-white text-black hover:bg-gray-100 rounded">AKADEMIK</button>
+                    <button class="px-3 py-1.5 border-2 border-black bg-white text-black hover:bg-gray-100 rounded">SOSIAL</button>
+                    <button class="px-3 py-1.5 border-2 border-black bg-white text-black hover:bg-gray-100 rounded">SENI</button>
+                </div>
+
+                <!-- Grid Ekskul -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="wireframe-box p-5 rounded-lg space-y-3">
+                        <div class="wireframe-img h-40 rounded"></div>
+                        <span class="text-[10px] text-gray-500 uppercase font-semibold">Kepemimpinan</span>
+                        <h4 class="font-bold text-base">Pramuka</h4>
+                        <p class="text-xs text-gray-600">Membentuk disiplin, kemandirian, dan jiwa kepemimpinan melalui kegiatan alam dan sosial.</p>
+                        <div class="text-[11px] text-gray-700 border-t pt-2 space-y-1">
+                            <div><strong>Pembina:</strong> Kak Budi Santoso</div>
+                            <div><strong>Jadwal:</strong> Jumat, 14.00 - 16.00</div>
+                        </div>
+                    </div>
+                    <div class="wireframe-box p-5 rounded-lg space-y-3">
+                        <div class="wireframe-img h-40 rounded"></div>
+                        <span class="text-[10px] text-gray-500 uppercase font-semibold">Olahraga</span>
+                        <h4 class="font-bold text-base">Futsal</h4>
+                        <p class="text-xs text-gray-600">Meningkatkan kebugaran, kerjasama tim, dan sportivitas melalui latihan rutin.</p>
+                        <div class="text-[11px] text-gray-700 border-t pt-2 space-y-1">
+                            <div><strong>Pembina:</strong> Coach Rizky Pratama</div>
+                            <div><strong>Jadwal:</strong> Selasa & Kamis, 15.30 - 17.00</div>
+                        </div>
+                    </div>
+                    <div class="wireframe-box p-5 rounded-lg space-y-3">
+                        <div class="wireframe-img h-40 rounded"></div>
+                        <span class="text-[10px] text-gray-500 uppercase font-semibold">Akademik</span>
+                        <h4 class="font-bold text-base">Robotik</h4>
+                        <p class="text-xs text-gray-600">Merancang robot sederhana, belajar pemrograman, dan mengikuti kompetisi teknologi.</p>
+                        <div class="text-[11px] text-gray-700 border-t pt-2 space-y-1">
+                            <div><strong>Pembina:</strong> Ibu Dewi Lestari</div>
+                            <div><strong>Jadwal:</strong> Sabtu, 09.00 - 12.00</div>
+                        </div>
+                    </div>
+                    <div class="wireframe-box p-5 rounded-lg space-y-3">
+                        <div class="wireframe-img h-40 rounded"></div>
+                        <span class="text-[10px] text-gray-500 uppercase font-semibold">Kepemimpinan</span>
+                        <h4 class="font-bold text-base">Paskibra</h4>
+                        <p class="text-xs text-gray-600">Melatih kedisiplinan, kekompakan, dan rasa tanggung jawab dalam upacara bendera.</p>
+                        <div class="text-[11px] text-gray-700 border-t pt-2 space-y-1">
+                            <div><strong>Pembina:</strong> Bapak Andi Wijaya</div>
+                            <div><strong>Jadwal:</strong> Rabu, 16.00 - 18.00</div>
+                        </div>
+                    </div>
+                    <div class="wireframe-box p-5 rounded-lg space-y-3">
+                        <div class="wireframe-img h-40 rounded"></div>
+                        <span class="text-[10px] text-gray-500 uppercase font-semibold">Sosial</span>
+                        <h4 class="font-bold text-base">Palang Merah Remaja (PMR)</h4>
+                        <p class="text-xs text-gray-600">Belajar pertolongan pertama, kesehatan, dan kegiatan sosial kemanusiaan.</p>
+                        <div class="text-[11px] text-gray-700 border-t pt-2 space-y-1">
+                            <div><strong>Pembina:</strong> Ibu Siti Aminah</div>
+                            <div><strong>Jadwal:</strong> Jumat, 14.00 - 15.30</div>
+                        </div>
+                    </div>
+                    <div class="wireframe-box p-5 rounded-lg space-y-3">
+                        <div class="wireframe-img h-40 rounded"></div>
+                        <span class="text-[10px] text-gray-500 uppercase font-semibold">Seni</span>
+                        <h4 class="font-bold text-base">Seni Musik</h4>
+                        <p class="text-xs text-gray-600">Menumbuhkan kreativitas dan keberanian tampil melalui latihan vokal dan instrumen.</p>
+                        <div class="text-[11px] text-gray-700 border-t pt-2 space-y-1">
+                            <div><strong>Pembina:</strong> Bapak Rudi Hartono</div>
+                            <div><strong>Jadwal:</strong> Sabtu, 10.00 - 12.00</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Punya Minat Lain? -->
+                <div class="wireframe-box bg-gray-100 p-8 rounded-lg text-center space-y-3">
+                    <h3 class="text-xl font-bold">Punya Minat Lain?</h3>
+                    <p class="text-xs text-gray-600 max-w-lg mx-auto">Sampaikan ide kegiatanmu kepada pembina kesiswaan. Kami terbuka untuk mengembangkan ekstrakurikuler baru.</p>
+                    <button onclick="switchPage('kontak')" class="bg-black text-white px-6 py-2.5 text-xs font-bold uppercase border-2 border-black hover:bg-white hover:text-black transition">Hubungi Sekolah</button>
+                </div>
+            </section>
+        </div>
+
+
+        <!-- ================= PAGE 5: BERITA ================= -->
+        <div id="page-berita" class="page-content hidden space-y-12 pb-16">
+            <!-- Header Banner -->
+            <section class="bg-gray-200 border-b-2 border-black py-12 px-6 text-center">
+                <div class="max-w-3xl mx-auto space-y-2">
+                    <p class="text-xs uppercase tracking-widest text-gray-600 font-semibold">Beranda / Berita</p>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Berita & Pengumuman</h2>
+                    <p class="text-sm text-gray-700">Kabar terbaru seputar kegiatan, prestasi, dan informasi penting sekolah.</p>
+                </div>
+            </section>
+
+            <!-- Search Bar & Articles -->
+            <section class="max-w-6xl mx-auto px-6 space-y-8">
+                <!-- Search Box -->
+                <div class="max-w-md mx-auto">
+                    <input type="text" placeholder="Cari berita atau pengumuman..." class="w-full px-4 py-2 text-xs border-2 border-black rounded-lg bg-white focus:outline-none focus:ring-1 focus:ring-black">
+                </div>
+
+                <!-- Articles Grid & Agenda Sidebar -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Articles (2 columns on lg) -->
+                    <div class="lg:col-span-2 space-y-6">
+                        <div class="wireframe-box p-4 rounded-lg grid grid-cols-1 sm:grid-cols-3 gap-4 items-center cursor-pointer hover:shadow transition" onclick="switchPage('detail-berita')">
+                            <div class="wireframe-img h-32 sm:h-full rounded"></div>
+                            <div class="sm:col-span-2 space-y-2">
+                                <span class="text-[10px] text-gray-500 uppercase font-semibold">PPDB / 5 Januari 2026</span>
+                                <h4 class="font-bold text-sm">PPDB 2026/2027 Resmi Dibuka</h4>
+                                <p class="text-xs text-gray-600">Pendaftaran gelombang pertama dibuka untuk calon siswa baru dengan berbagai kemudahan fasilitas.</p>
+                                <span class="text-[11px] font-bold underline inline-block">Baca Selengkapnya →</span>
+                            </div>
+                        </div>
+                        <div class="wireframe-box p-4 rounded-lg grid grid-cols-1 sm:grid-cols-3 gap-4 items-center cursor-pointer hover:shadow transition" onclick="switchPage('detail-berita')">
+                            <div class="wireframe-img h-32 sm:h-full rounded"></div>
+                            <div class="sm:col-span-2 space-y-2">
+                                <span class="text-[10px] text-gray-500 uppercase font-semibold">Prestasi / 22 Februari 2026</span>
+                                <h4 class="font-bold text-sm">Siswa RPL Raih Juara 1 Lomba Web Design Nasional</h4>
+                                <p class="text-xs text-gray-600">Tim sekolah berhasil menyisihkan puluhan peserta dari seluruh Indonesia dalam kompetisi bergengsi.</p>
+                                <span class="text-[11px] font-bold underline inline-block">Baca Selengkapnya →</span>
+                            </div>
+                        </div>
+                        <div class="wireframe-box p-4 rounded-lg grid grid-cols-1 sm:grid-cols-3 gap-4 items-center cursor-pointer hover:shadow transition" onclick="switchPage('detail-berita')">
+                            <div class="wireframe-img h-32 sm:h-full rounded"></div>
+                            <div class="sm:col-span-2 space-y-2">
+                                <span class="text-[10px] text-gray-500 uppercase font-semibold">Kegiatan / 18 Maret 2026</span>
+                                <h4 class="font-bold text-sm">Kunjungan Industri ke PT Nusantara Teknologi</h4>
+                                <p class="text-xs text-gray-600">Siswa kelas XI belajar langsung tentang proses kerja di industri software dan perangkat keras.</p>
+                                <span class="text-[11px] font-bold underline inline-block">Baca Selengkapnya →</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar Agenda & Pengumuman Singkat -->
+                    <div class="space-y-6">
+                        <div class="wireframe-box p-5 rounded-lg space-y-4">
+                            <h4 class="font-bold text-sm uppercase border-b border-black pb-2">Agenda Terdekat</h4>
+                            <div class="space-y-3 text-xs">
+                                <div class="border-b border-gray-200 pb-2">
+                                    <div class="font-bold text-gray-900">18 Mei 2026</div>
+                                    <div class="text-gray-600">Ujian Akhir Semester Genap</div>
+                                </div>
+                                <div class="border-b border-gray-200 pb-2">
+                                    <div class="font-bold text-gray-900">25 Mei 2026</div>
+                                    <div class="text-gray-600">Pentas Seni Siswa (Pensi)</div>
+                                </div>
+                                <div>
+                                    <div class="font-bold text-gray-900">1 Juni 2026</div>
+                                    <div class="text-gray-600">Libur Hari Lahir Pancasila</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="wireframe-box p-5 rounded-lg space-y-4">
+                            <h4 class="font-bold text-sm uppercase border-b border-black pb-2">Pengumuman Singkat</h4>
+                            <ul class="space-y-2 text-xs text-gray-700 list-disc list-inside">
+                                <li>2 April 2026 / Workshop literasi digital untuk guru dan tenaga kependidikan.</li>
+                                <li>2 Mei 2026 / Peringatan Hari Pendidikan Nasional di lapangan sekolah.</li>
+                                <li>12 Mei 2026 / Pengumuman jadwal ujian akhir semester genap.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+        <!-- ================= PAGE 6: GALERI ================= -->
+        <div id="page-galeri" class="page-content hidden space-y-12 pb-16">
+            <!-- Header Banner -->
+            <section class="bg-gray-200 border-b-2 border-black py-12 px-6 text-center">
+                <div class="max-w-3xl mx-auto space-y-2">
+                    <p class="text-xs uppercase tracking-widest text-gray-600 font-semibold">Beranda / Galeri</p>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Galeri Kegiatan</h2>
+                    <p class="text-sm text-gray-700">Kumpulan momen belajar, kegiatan siswa, fasilitas, dan prestasi sekolah.</p>
+                </div>
+            </section>
+
+            <!-- Gallery Grid -->
+            <section class="max-w-6xl mx-auto px-6 space-y-8">
+                <div class="flex flex-wrap justify-center gap-2 text-xs font-semibold">
+                    <button class="px-3 py-1.5 border-2 border-black bg-black text-white rounded">SEMUA</button>
+                    <button class="px-3 py-1.5 border-2 border-black bg-white text-black hover:bg-gray-100 rounded">KEGIATAN</button>
+                    <button class="px-3 py-1.5 border-2 border-black bg-white text-black hover:bg-gray-100 rounded">FASILITAS</button>
+                    <button class="px-3 py-1.5 border-2 border-black bg-white text-black hover:bg-gray-100 rounded">PRESTASI</button>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="wireframe-img h-48 rounded-lg"></div>
+                    <div class="wireframe-img h-48 rounded-lg"></div>
+                    <div class="wireframe-img h-48 rounded-lg"></div>
+                    <div class="wireframe-img h-48 rounded-lg"></div>
+                    <div class="wireframe-img h-48 rounded-lg"></div>
+                    <div class="wireframe-img h-48 rounded-lg"></div>
+                    <div class="wireframe-img h-48 rounded-lg"></div>
+                    <div class="wireframe-img h-48 rounded-lg"></div>
+                    <div class="wireframe-img h-48 rounded-lg"></div>
+                    <div class="wireframe-img h-48 rounded-lg"></div>
+                    <div class="wireframe-img h-48 rounded-lg"></div>
+                    <div class="wireframe-img h-48 rounded-lg"></div>
+                </div>
+            </section>
+        </div>
+
+
+        <!-- ================= PAGE 7: KONTAK ================= -->
+        <div id="page-kontak" class="page-content hidden space-y-12 pb-16">
+            <!-- Header Banner -->
+            <section class="bg-gray-200 border-b-2 border-black py-12 px-6 text-center">
+                <div class="max-w-3xl mx-auto space-y-2">
+                    <p class="text-xs uppercase tracking-widest text-gray-600 font-semibold">Beranda / Kontak</p>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Kontak Sekolah</h2>
+                    <p class="text-sm text-gray-700">Hubungi sekolah untuk informasi penerimaan siswa baru, kerja sama, atau pertanyaan umum.</p>
+                </div>
+            </section>
+
+            <!-- Contact Information & Form -->
+            <section class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Info Kontak -->
+                <div class="wireframe-box p-6 rounded-lg space-y-6">
+                    <h3 class="text-xl font-bold border-b border-black pb-2">Informasi Kontak</h3>
+                    <p class="text-xs text-gray-600">Kami siap membantu pertanyaan seputar penerimaan siswa baru, kerja sama industri, atau informasi sekolah lainnya.</p>
+                    <div class="space-y-4 text-xs text-gray-700">
+                        <div class="flex items-start space-x-3">
+                            <span class="font-bold text-sm">📍</span>
+                            <div>
+                                <strong>Alamat:</strong><br>
+                                Jl. Ters. Nilem Barat No.49 B, Pasirluyu, Kec. Regol, Kota Bandung, Jawa Barat 40254
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="font-bold text-sm">📞</span>
+                            <div>
+                                <strong>Telepon:</strong><br>
+                                0882002227066
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="font-bold text-sm">💬</span>
+                            <div>
+                                <strong>WhatsApp:</strong><br>
+                                8820-0222-7066
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="font-bold text-sm">✉️</span>
+                            <div>
+                                <strong>Email:</strong><br>
+                                info@smklppmribdg.sch.id
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="font-bold text-sm">⏰</span>
+                            <div>
+                                <strong>Jam Layanan:</strong><br>
+                                Senin - Jumat, 07.00 - 16.00 WIB
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Kirim Pesan -->
+                <div class="wireframe-box p-6 rounded-lg space-y-6">
+                    <h3 class="text-xl font-bold border-b border-black pb-2">Kirim Pesan</h3>
+                    <form onsubmit="event.preventDefault(); alertCustom('Pesan berhasil terkirim! Terima kasih telah menghubungi SMK LPPM RI Bandung.');" class="space-y-4 text-xs">
+                        <div>
+                            <label class="block font-bold mb-1">Nama Lengkap</label>
+                            <input type="text" required class="w-full px-3 py-2 border-2 border-black rounded bg-white" placeholder="Masukkan nama Anda...">
+                        </div>
+                        <div>
+                            <label class="block font-bold mb-1">Email</label>
+                            <input type="email" required class="w-full px-3 py-2 border-2 border-black rounded bg-white" placeholder="email@domain.com">
+                        </div>
+                        <div>
+                            <label class="block font-bold mb-1">Nomor Telepon</label>
+                            <input type="text" class="w-full px-3 py-2 border-2 border-black rounded bg-white" placeholder="08xxxxxxxxxx">
+                        </div>
+                        <div>
+                            <label class="block font-bold mb-1">Subjek</label>
+                            <select class="w-full px-3 py-2 border-2 border-black rounded bg-white">
+                                <option>Pertanyaan PPDB</option>
+                                <option>Kerja Sama Industri (PKL)</option>
+                                <option>Informasi Umum</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block font-bold mb-1">Pesan</label>
+                            <textarea rows="4" required class="w-full px-3 py-2 border-2 border-black rounded bg-white" placeholder="Tuliskan pesan Anda..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-black text-white py-2.5 font-bold uppercase tracking-wider border-2 border-black hover:bg-white hover:text-black transition">
+                            Kirim Pesan
+                        </button>
+                    </form>
+                </div>
+            </section>
+        </div>
+
+
+        <!-- ================= PAGE 8: DETAIL BERITA ================= -->
+        <div id="page-detail-berita" class="page-content hidden space-y-12 pb-16">
+            <!-- Header Breadcrumb -->
+            <section class="bg-gray-200 border-b-2 border-black py-10 px-6">
+                <div class="max-w-4xl mx-auto space-y-2">
+                    <p class="text-xs text-gray-600 font-semibold">Berita / Prestasi / 22 Februari 2026</p>
+                    <h2 class="text-2xl md:text-4xl font-bold tracking-tight">Siswa RPL Raih Juara 1 Lomba Web Design Nasional</h2>
+                    <p class="text-xs text-gray-500">Ditulis oleh: Tim Humas SMK Negeri 1 Nusantara</p>
+                </div>
+            </section>
+
+            <!-- Article Body -->
+            <section class="max-w-4xl mx-auto px-6 space-y-6 text-xs md:text-sm leading-relaxed text-gray-800">
+                <div class="wireframe-img h-64 md:h-96 rounded-lg">
+                    <span class="text-xs font-mono text-gray-500">[ GAMBAR UTAMA BERITA ]</span>
+                </div>
+
+                <p>
+                    Tim siswa Rekayasa Perangkat Lunak SMK LPPM RI Bandung berhasil meraih juara pertama pada lomba web design tingkat nasional yang diikuti oleh puluhan sekolah kejuruan di seluruh Indonesia.
+                </p>
+                <p>
+                    Karya yang dilombakan berupa website profil sekolah dengan tampilan responsif, navigasi yang mudah diakses, dan informasi yang terstruktur rapi. Tim melalui beberapa tahap seleksi ketat mulai dari pengiriman proposal, perancangan prototipe wireframe, hingga presentasi akhir di depan para juri profesional industri IT.
+                </p>
+                <p>
+                    Pembina tim menyampaikan bahwa kemenangan ini merupakan hasil latihan rutin, dedikasi tinggi, dan budaya kerja proyek di laboratorium sekolah. Siswa didorong untuk terus mengembangkan kemampuan teknis sekaligus kemampuan komunikasi publik agar siap terjun di dunia profesional.
+                </p>
+                <p>
+                    Prestasi ini diharapkan menjadi motivasi bagi seluruh siswa untuk terus aktif berkarya dan mengikuti kompetisi sesuai dengan bidang keahlian masing-masing.
+                </p>
+
+                <div class="wireframe-box p-6 rounded-lg space-y-3 bg-gray-50 my-6">
+                    <h4 class="font-bold uppercase text-xs">Poin Penting Artikel:</h4>
+                    <ul class="list-disc list-inside space-y-1 text-xs text-gray-700">
+                        <li>Juara 1 lomba web design tingkat nasional tahun 2026.</li>
+                        <li>Karya berupa website profil sekolah yang responsif dan interaktif.</li>
+                        <li>Proses seleksi meliputi proposal, prototipe, hingga presentasi teknis.</li>
+                        <li>Menjadi inspirasi dan motivasi bagi siswa kejuruan lainnya.</li>
+                    </ul>
+                </div>
+
+                <div class="flex justify-between items-center pt-6 border-t border-gray-300">
+                    <button onclick="switchPage('berita')" class="wireframe-btn px-4 py-2 font-bold uppercase">← Kembali ke Berita</button>
+                    <button onclick="switchPage('kontak')" class="bg-black text-white px-4 py-2 font-bold uppercase border-2 border-black hover:bg-white hover:text-black transition">Hubungi Kami</button>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- Footer Wireframe -->
+    <footer class="bg-white border-t-2 border-black pt-12 pb-6 px-6 md:px-12 text-xs text-gray-700 mt-auto">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-gray-300">
+            <div class="space-y-3">
+                <div class="flex items-center space-x-2">
+                    <div class="wireframe-img w-7 h-7 rounded flex items-center justify-center text-[8px] font-bold">LOGO</div>
+                    <span class="font-bold text-xs">SMK LPPM RI BANDUNG</span>
+                </div>
+                <p class="text-[11px] text-gray-600">
+                    Sekolah menengah kejuruan yang menyiapkan lulusan kompeten, berkarakter, dan siap bekerja maupun melanjutkan pendidikan.
+                </p>
+                <div class="flex space-x-2 text-gray-500">
+                    <span class="cursor-pointer hover:text-black">📷 IG</span>
+                    <span class="cursor-pointer hover:text-black">▶ YT</span>
+                </div>
+            </div>
+            <div class="space-y-2">
+                <h4 class="font-bold uppercase text-black">Menu Cepat</h4>
+                <ul class="space-y-1 text-[11px] text-gray-600">
+                    <li><button onclick="switchPage('home')" class="hover:underline">Beranda</button></li>
+                    <li><button onclick="switchPage('profil')" class="hover:underline">Profil Sekolah</button></li>
+                    <li><button onclick="switchPage('jurusan')" class="hover:underline">Kompetensi Keahlian</button></li>
+                    <li><button onclick="switchPage('ekskul')" class="hover:underline">Ekstrakurikuler</button></li>
+                    <li><button onclick="switchPage('berita')" class="hover:underline">Berita</button></li>
+                </ul>
+            </div>
+            <div class="space-y-2">
+                <h4 class="font-bold uppercase text-black">Informasi</h4>
+                <ul class="space-y-1 text-[11px] text-gray-600">
+                    <li><button onclick="switchPage('profil')" class="hover:underline">Penerimaan Siswa Baru</button></li>
+                    <li><button onclick="switchPage('galeri')" class="hover:underline">Galeri Kegiatan</button></li>
+                    <li><button onclick="switchPage('profil')" class="hover:underline">Data Sekolah</button></li>
+                    <li><button onclick="switchPage('profil')" class="hover:underline">Fasilitas</button></li>
+                    <li><button onclick="switchPage('kontak')" class="hover:underline">Hubungi Kami</button></li>
+                </ul>
+            </div>
+            <div class="space-y-2">
+                <h4 class="font-bold uppercase text-black">Kontak</h4>
+                <p class="text-[11px] text-gray-600 leading-relaxed">
+                    Jl. Ters. Nilem Barat No.49 B, Pasirluyu, Kec. Regol, Kota Bandung, Jawa Barat 40254<br>
+                    <strong>Telp:</strong> +62 882002227066<br>
+                    <strong>Email:</strong> info@smklppmribdg.sch.id<br>
+                    Senin - Jumat, 07.00 - 16.00 WIB
+                </p>
+            </div>
+        </div>
+        <div class="max-w-6xl mx-auto pt-6 text-center text-gray-500 text-[11px]">
+            © 2026 SMK LPPM RI BANDUNG. Wireframe UI Prototype.
+        </div>
+    </footer>
+
+    <!-- Custom Notification Box (No alert() used) -->
+    <div id="custom-modal" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center hidden">
+        <div class="wireframe-box bg-white p-6 rounded-lg max-w-sm w-full mx-4 space-y-4 text-center">
+            <h3 class="font-bold text-sm uppercase">Informasi Prototype</h3>
+            <p id="modal-message" class="text-xs text-gray-700"></p>
+            <button onclick="closeModal()" class="bg-black text-white px-5 py-1.5 text-xs font-bold uppercase border-2 border-black hover:bg-white hover:text-black transition">Tutup</button>
+        </div>
+    </div>
+
+    <!-- JavaScript Interactive Logic -->
+    <script>
+        // Multi-page navigation switcher
+        function switchPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page-content');
+            pages.forEach(p => p.classList.add('hidden'));
+
+            // Show selected page
+            const targetPage = document.getElementById('page-' + pageId);
+            if (targetPage) {
+                targetPage.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Interactive Jurusan Tab Switcher on Jurusan Page
+        function selectJurusan(key) {
+            const data = {
+                'rpl': {
+                    title: 'Rekayasa Perangkat Lunak',
+                    badge: 'Kompetensi Keahlian Unggulan',
+                    desc: 'Mempelajari pemrograman web, mobile application, basis data, serta rekayasa pembuatan perangkat lunak secara terstruktur sesuai standar industri software house modern.',
+                    career: ['Web Developer', 'Mobile Developer', 'Quality Assurance', 'Data Analyst'],
+                    facility: ['Laboratorium Pemrograman', 'Server Pengembangan', 'Praktik Proyek Aplikasi']
+                },
+                'tkj': {
+                    title: 'Teknik Komputer & Jaringan',
+                    badge: 'Kompetensi Keahlian Jaringan',
+                    desc: 'Mempelajari instalasi jaringan komputer, administrasi server lokal dan cloud, konfigurasi router mikrotik, serta pemeliharaan hardware dan troubleshooting.',
+                    career: ['Network Administrator', 'IT Support Specialist', 'Network Engineer', 'Cloud Assistant'],
+                    facility: ['Lab Jaringan Komputer', 'Perangkat Mikrotik & Cisco', 'Ruang Perakitan PC']
+                },
+                'dkv': {
+                    title: 'Desain Komunikasi Visual',
+                    badge: 'Kompetensi Keahlian Kreatif',
+                    desc: 'Mempelajari prinsip desain grafis, ilustrasi digital, videografi, fotografi, editing video, dan perancangan media promosi visual cetak maupun digital.',
+                    career: ['Graphic Designer', 'Video Editor', 'Content Creator', 'Illustrator'],
+                    facility: ['Studio Desain & Fotografi', 'Perangkat Penunjang Gambar', 'Lab Multimedia']
+                },
+                'akl': {
+                    title: 'Akuntansi & Keuangan Lembaga',
+                    badge: 'Kompetensi Keahlian Keuangan',
+                    desc: 'Mempelajari penyusunan laporan keuangan perusahaan jasa, dagang, dan manufaktur, pengoperasian software akuntansi komputer, serta perbankan dasar.',
+                    career: ['Junior Accountant', 'Admin Keuangan', 'Teller Bank', 'Kasir Profesional'],
+                    facility: ['Lab Komputer Akuntansi', 'Simulasi Perbankan Mini', 'Software Akuntansi Terpadu']
+                }
+            };
+
+            const item = data[key];
+            if (item) {
+                document.getElementById('jurusan-title').innerText = item.title;
+                document.getElementById('jurusan-badge').innerText = item.badge;
+                document.getElementById('jurusan-desc').innerText = item.desc;
+                
+                const careerList = document.getElementById('jurusan-career');
+                careerList.innerHTML = item.career.map(c => `<li>${c}</li>`).join('');
+
+                const facilityList = document.getElementById('jurusan-facility');
+                facilityList.innerHTML = item.facility.map(f => `<li>${f}</li>`).join('');
+
+                // Update button active state
+                ['rpl', 'tkj', 'dkv', 'akl'].forEach(k => {
+                    const btn = document.getElementById('btn-' + k);
+                    if (k === key) {
+                        btn.className = 'px-4 py-2 text-xs font-bold uppercase border-2 border-black bg-black text-white transition';
+                    } else {
+                        btn.className = 'px-4 py-2 text-xs font-bold uppercase border-2 border-black bg-white text-black hover:bg-gray-100 transition';
+                    }
+                });
+            }
+        }
+
+        // Custom Modal helper (replacing alert)
+        function alertCustom(message) {
+            document.getElementById('modal-message').innerText = message;
+            document.getElementById('custom-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('custom-modal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
